@@ -36,7 +36,7 @@
     We also show that by adjusting the weighting of each text prompt based on fitting the similarity changes to a sigmoid function and then performing black-box optimization, more accurate and robust continuous state recognition can be achieved.
     We demonstrate the effectiveness and limitations of this method by performing the recognition of water boiling, butter melting, egg cooking, and onion stir-frying.
     " />
-    <meta property="og:image" content="https://haraduka.github.io/continuous-state-recognition/assets/img/concept.png" />
+    <meta property="og:image" content="https://haraduka.github.io/continuous-state-recognition/assets/img/banner.png" />
   </head>
   <body>
     <div class="container-fluid">
@@ -69,10 +69,13 @@
           <div class="row mt-4">
             <div class="col-lg-10 offset-lg-1">
               <p>
-              One of the most important features of tendon-driven robots is the ease of wire arrangement and the degree of freedom it affords, enabling the construction of a body that satisfies the desired characteristics by modifying the wire arrangement.
-              Various wire arrangement optimization methods have been proposed, but they have simplified the configuration by assuming that the moment arm of wires to joints are constant, or by disregarding wire arrangements that span multiple joints and include relay points.
-              In this study, we formulate a more flexible wire arrangement optimization problem in which each wire is represented by a start point, multiple relay points, and an end point, and achieve the desired physical performance based on black-box optimization.
-              We consider a multi-objective optimization which simultaneously takes into account both the feasible operational force space and velocity space, and discuss the optimization results obtained from various configurations.
+    The state recognition of the environment and objects by robots is generally based on the judgement of the current state as a classification problem.
+    On the other hand, state changes of food in cooking happen continuously and need to be captured not only at a certain time point but also continuously over time.
+    In addition, the state changes of food are complex and cannot be easily described by manual programming.
+    Therefore, we propose a method to recognize the continuous state changes of food for cooking robots through the spoken language using pre-trained large-scale vision-language models.
+    By using models that can compute the similarity between images and texts continuously over time, we can capture the state changes of food while cooking.
+    We also show that by adjusting the weighting of each text prompt based on fitting the similarity changes to a sigmoid function and then performing black-box optimization, more accurate and robust continuous state recognition can be achieved.
+    We demonstrate the effectiveness and limitations of this method by performing the recognition of water boiling, butter melting, egg cooking, and onion stir-frying.
               </p>
             </div>
           </div>
@@ -80,10 +83,9 @@
           <!-- overview -->
           <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
           <div class="col-lg-10 offset-lg-1">
-            <h4>Design Optimization of Wire Arrangement with Variable Relay Points</h4>
+            <h4>Robotic Continuous State Recognition Using Pre-Trained Vision-Language Models and Black-box Optimization</h4>
             <p>
-            we propose a wire arrangement design optimization method that takes into account variable relay points.
-            We perform multi-objective black-box optimization by setting the realization of target operational force and velocity spaces as objective functions.
+            We propose a continuous object state recognition method for cooking robots by using pre-trained large-scale vision-language models and black-box optimization.
             </p>
             <div align="center" class="row mt-4">
               <div class="col-lg-10 offset-lg-1">
@@ -92,41 +94,16 @@
             </div>
           </div>
 
+          <!-- method -->
           <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
           <div class="col-lg-10 offset-lg-1">
-            <h4>Motions of Tendon-driven Robots</h4>
-            <div align="center" class="row mt-4">
-              <div class="col-lg-10 offset-lg-1">
-                <img src="assets/img/robots.gif" class="img-fluid">
-              </div>
-            </div>
-          </div>
-
-          <!-- design parameters -->
-          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
-          <div class="col-lg-10 offset-lg-1">
-            <h4>Design Parameters of Wire Arrangement</h4>
+            <h4>Overview of the Proposed Method</h4>
             <p>
-            We set up a problem in which each wire can freely choose which position of each link it passes through.
-            </p>
-            <div align="center" class="row mt-4">
-              <div class="col-lg-8 offset-lg-2">
-                <img src="assets/img/design-params.png" class="img-fluid">
-              </div>
-            </div>
-          </div>
-
-          <!-- objective function -->
-          <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
-          <div class="col-lg-10 offset-lg-1">
-            <h4>Calculation of Objective Functions</h4>
-            <p>
-            In this study, we use feasible operational force space (OFS) and operational velocity space (OVS) as the objective functions.
-            We define the target OFS and OVS, and find design solutions that realize them as much as possible.
+            We obtain time series of images D, prepare a variety of text prompts, calculate the continuous similarity changes with pre-trained vision-language models and text weight, fit the similarity changes to a sigmoid function, compute the evaluation value, and iteratively optimize the text weight with black-box optimization.
             </p>
             <div align="center" class="row mt-4">
               <div class="col-lg-10 offset-lg-1">
-                <img src="assets/img/design-obj.png" class="img-fluid">
+                <img src="assets/img/proposed.png" class="img-fluid">
               </div>
             </div>
           </div>
@@ -136,7 +113,7 @@
           <div class="col-lg-10 offset-lg-1">
             <h4>Experimental Setup</h4>
             <p>
-            The robot configuration and the evaluated joint angles are shown. The design parameters were changed to Variable or Constant, gravity configuration to w/o-Gravity or w-Gravity, and target operational force / velocity space to Target-1 or Target-2.
+            The text prompts and representative images for water boiling, butter melting, egg cooking, and onion stir-frying experiments
             </p>
             <div align="center" class="row mt-4">
               <div class="col-lg-12">
@@ -145,56 +122,70 @@
             </div>
           </div>
 
-          <!-- simulation -->
+          <!-- experiments -->
           <div class="col-lg-10 offset-lg-1"><hr class="mt-4 mb-4"></div>
           <div class="col-lg-10 offset-lg-1">
-            <h4>Simulation Experiments</h4>
+            <h4>Experiments</h4>
             <div class="mt-4">
-              <h5>Experiment of Target-1 w/o Gravity</h4>
-              <p>
-              By increasing the number of wires, the performance becomes better.
-              By increasing the number of relay points, the performance becomes better.
-              The performance of Variable is betterh than that of Constant.
-              </p>
               <div align="center" class="row mt-4">
                 <div class="col-lg-10 offset-lg-1">
-                  <img src="assets/img/exp1-pareto.png" class="img-fluid">
+                  <img src="assets/img/water-train.gif" class="img-fluid">
                 </div>
               </div>
             </div>
             <div class="mt-4">
-              <h5>Detailed Experiment of Constant without Restrictions</h4>
-              <p>
-              For Constant, performance without restrictions is much higher than that with restrictions.
-              For Variable, by increasing N, we can obtain higher performance than that of Constant.
-              </p>
               <div align="center" class="row mt-4">
                 <div class="col-lg-10 offset-lg-1">
-                  <img src="assets/img/exp1c-pareto.png" class="img-fluid">
+                  <img src="assets/img/water-test.gif" class="img-fluid">
                 </div>
               </div>
             </div>
             <div class="mt-4">
-              <h5>Experiment of Target-1 w/ Gravity</h4>
-              <p>
-              With the presence of gravity, the performance becomes better.
-              The wire drive can produce anisotropic torque depending on the direction of joint rotation, and so gravity can be used effectively in many cases.
-              </p>
               <div align="center" class="row mt-4">
                 <div class="col-lg-10 offset-lg-1">
-                  <img src="assets/img/exp1g-pareto.png" class="img-fluid">
+                  <img src="assets/img/butter-train.gif" class="img-fluid">
                 </div>
               </div>
             </div>
             <div class="mt-4">
-              <h5>Experiment of Target-2 w/o Gravity</h4>
-              <p>
-              By increasing the number of wires, the performance becomes better.
-              However, the characteristics of the performance are different from those of Target-1.
-              </p>
               <div align="center" class="row mt-4">
                 <div class="col-lg-10 offset-lg-1">
-                  <img src="assets/img/exp2-pareto.png" class="img-fluid">
+                  <img src="assets/img/butter-test.gif" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div align="center" class="row mt-4">
+                <div class="col-lg-10 offset-lg-1">
+                  <img src="assets/img/egg-train.gif" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div align="center" class="row mt-4">
+                <div class="col-lg-10 offset-lg-1">
+                  <img src="assets/img/egg-test.gif" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div align="center" class="row mt-4">
+                <div class="col-lg-10 offset-lg-1">
+                  <img src="assets/img/onion-train.gif" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div align="center" class="row mt-4">
+                <div class="col-lg-10 offset-lg-1">
+                  <img src="assets/img/onion-test.gif" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="mt-4">
+              <div align="center" class="row mt-4">
+                <div class="col-lg-10 offset-lg-1">
+                  <img src="assets/img/integrated.gif" class="img-fluid">
                 </div>
               </div>
             </div>
